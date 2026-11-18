@@ -1,0 +1,20 @@
+{
+  "name": "hw227131-weather-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A responsive weather app that retrieves and displays WeatherAPI forecast data.",
+  "main": "app.js",
+  "scripts": {
+    "build:css": "sass scss/main.scss public/styles.css --style=expanded",
+    "start": "npm run build:css && node app.js",
+    "dev": "npm run build:css && node --watch app.js",
+    "watch:css": "sass --watch scss/main.scss:public/styles.css"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0"
+  }
+}

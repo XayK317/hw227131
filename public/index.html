@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Local forecasts, live conditions, and detailed weather data in one clear view.">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Cloudline — Weather, in view</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Cloudline home"><span class="brand__mark" aria-hidden="true">◒</span> cloudline<span class="brand__period">.</span></a>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="#today">Today</a>
+        <a href="#forecast">Forecast</a>
+        <a href="#weather-data">Weather data</a>
+        <a href="#about">About</a>
+        <button class="button button--quiet auth-button" type="button" data-auth="Log in">Log in</button>
+        <button class="button button--dark auth-button" type="button" data-auth="Sign up">Sign up <span aria-hidden="true">↗</span></button>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="live-dot"></span> WEATHER, IN VIEW</p>
+          <h1 id="page-title">A little more<br><span>in the forecast.</span></h1>
+          <p class="hero__intro">The details behind your day, all in one place.</p>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <span class="sun"></span>
+          <span class="cloud cloud--one"></span>
+          <span class="cloud cloud--two"></span>
+          <span class="art-caption">a brighter outlook</span>
+        </div>
+      </section>
+
+      <section class="search-panel" aria-label="Find weather">
+        <form id="weather-search" class="search-form">
+          <label for="location">Find a place</label>
+          <div class="search-form__controls">
+            <div class="location-input">
+              <span aria-hidden="true">⌖</span>
+              <input id="location" name="q" type="search" placeholder="City or ZIP / postal code" autocomplete="off" required maxlength="100">
+            </div>
+            <label class="days-select" for="days">
+              <span>Days</span>
+              <select id="days" name="days" aria-label="Number of forecast days">
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3" selected>3 days</option>
+              </select>
+            </label>
+            <button class="button button--accent search-button" type="submit">Show weather <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+        <p class="search-note"><span aria-hidden="true">✦</span> Try a city like Portland, Tokyo, or a ZIP code like 10001</p>
+      </section>
+
+      <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+      <div id="loading" class="loading" role="status" aria-live="polite" hidden>
+        <span class="loading__spinner" aria-hidden="true"></span>
+        <span>Finding your forecast…</span>
+      </div>
+      <section id="weather-results" aria-live="polite"></section>
+
+      <section id="about" class="about">
+        <p class="eyebrow">A FORECAST WITH CONTEXT</p>
+        <h2>More than just<br>sun or showers.</h2>
+        <p>Cloudline brings current conditions, daily outlooks, hourly details, air quality, and the little things that help you plan ahead.</p>
+        <span class="about__weather" aria-hidden="true">☁︎</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="/"><span class="brand__mark" aria-hidden="true">◒</span> cloudline<span class="brand__period">.</span></a>
+      <span>Made for clearer days.</span>
+      <span>Weather data by <a href="https://www.weatherapi.com/" target="_blank" rel="noreferrer">WeatherAPI.com</a></span>
+    </footer>
+
+    <dialog id="auth-dialog" class="auth-dialog">
+      <form method="dialog">
+        <button class="auth-dialog__close" aria-label="Close dialog">×</button>
+        <p class="eyebrow">CLOUDLINE ACCOUNT</p>
+        <h2 id="auth-title">Log in</h2>
+        <p>Account access is a demo placeholder for this assignment. Your weather search works without an account.</p>
+        <button class="button button--dark" type="submit">Got it</button>
+      </form>
+    </dialog>
+  </body>
+</html>
